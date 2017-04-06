@@ -14,7 +14,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from cmsPut.models import Page
+import cmsPut.views
 
 urlpatterns = [
+    url(r'^$', cmsPut.views.default, name = "Default"),
+    url(r'^(.+)', cmsPut.views.handlePage, name = "Manejar paginas"),
     url(r'^admin/', include(admin.site.urls)),
 ]
